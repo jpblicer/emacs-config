@@ -14,7 +14,7 @@
 (setq use-package-always-ensure t)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("org" . "https://orgmode.org/elpa/")
-                        ;; ("elpa" . "https://elpa.gnu.org/packages/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")
 												 ))
 
 
@@ -79,7 +79,7 @@
 ;;eglot
 (use-package eglot
  :ensure nil ;; Don't install eglot because it's now built-in
- :hook ((c-mode c++-mode ;; Autostart lsp servers for a given mode
+ :hook ((c-mode c++-mode;; Autostart lsp servers for a given mode
                 lua-mode) ;; Lua-mode needs to be installed
         . eglot-ensure)
  :custom
@@ -93,12 +93,27 @@
               `(lua-mode . ("PATH_TO_THE_LSP_FOLDER/bin/lua-language-server" "-lsp"))) ;; Adds our lua lsp server to eglot's server list
  )
 
+;; eglot for ruby
+(use-package eglot
+  :init
+  (add-hook 'ruby-mode-hook 'eglot-ensure))
+(add-to-list 'eglot-server-programs '((ruby-mode) . ("solargraph" "stdio")))
+(add-to-list 'eglot-server-programs '((ruby-mode) . ("solargraph" "stdio")))
+
+;; ruby Path
+(setenv "PATH" (concat (getenv "PATH") ":/home/james/.rbenv/shims"))
+(setq exec-path (append exec-path '("/home/james/.rbenv/shims")))
+
+
+
 ;; eglot for Go
 (add-hook 'go-mode-hook 'eglot-ensure)
 
 ;; Go Path
 (setenv "PATH" (concat (getenv "PATH") ":/home/james/go/bin"))
 (setq exec-path (append exec-path '("/home/james/go/bin")))
+(setenv "PATH" (concat "/usr/local/go/bin:" (getenv "PATH")))
+(setq exec-path (append exec-path '("/usr/local/go/bin")))
 
 ;; Org-mode
 (use-package org
@@ -265,3 +280,4 @@
 ;; Runtime Performance
 (setq gc-cons-threshold (* 2 1000 1000))
 (setq read-process-output-max (* 1024 1024))
+
