@@ -82,6 +82,10 @@
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
+;; vTerm
+(use-package vterm
+    :ensure t)
+
 ;; eglot configuration
 (use-package eglot
   :ensure nil ;; Don't install eglot because it's now built-in
