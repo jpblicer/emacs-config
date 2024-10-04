@@ -75,45 +75,23 @@
 
 (setq project--default-search-method 'git)
 
+;; Use exec-path-from-shell to set up PATH
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
 
-;;eglot
+;; eglot configuration
 (use-package eglot
- :ensure nil ;; Don't install eglot because it's now built-in
- :hook ((c-mode c++-mode;; Autostart lsp servers for a given mode
-                lua-mode) ;; Lua-mode needs to be installed
-        . eglot-ensure)
- :custom
- ;; Good default
- (eglot-events-buffer-size 0) ;; No event buffers (Lsp server logs)
- (eglot-autoshutdown t);; Shutdown unused servers.
- (eglot-report-progress nil) ;; Disable lsp server logs (Don't show lsp messages at the bottom, java)
- ;; Manual lsp servers
- :config
- (add-to-list 'eglot-server-programs
-              `(lua-mode . ("PATH_TO_THE_LSP_FOLDER/bin/lua-language-server" "-lsp"))) ;; Adds our lua lsp server to eglot's server list
- )
-
-;; eglot for ruby
-(use-package eglot
-  :init
-  (add-hook 'ruby-mode-hook 'eglot-ensure))
-(add-to-list 'eglot-server-programs '((ruby-mode) . ("solargraph" "stdio")))
-(add-to-list 'eglot-server-programs '((ruby-mode) . ("solargraph" "stdio")))
-
-;; ruby Path
-(setenv "PATH" (concat (getenv "PATH") ":/home/james/.rbenv/shims"))
-(setq exec-path (append exec-path '("/home/james/.rbenv/shims")))
-
-
-
-;; eglot for Go
-(add-hook 'go-mode-hook 'eglot-ensure)
-
-;; Go Path
-(setenv "PATH" (concat (getenv "PATH") ":/home/james/go/bin"))
-(setq exec-path (append exec-path '("/home/james/go/bin")))
-(setenv "PATH" (concat "/usr/local/go/bin:" (getenv "PATH")))
-(setq exec-path (append exec-path '("/usr/local/go/bin")))
+  :ensure nil ;; Don't install eglot because it's now built-in
+  :hook ((c-mode c++-mode lua-mode ruby-mode go-mode
+                 web-mode js-mode typescript-mode) . eglot-ensure)
+  :custom
+  (eglot-events-buffer-size 0) ;; No event buffers (Lsp server logs)
+  (eglot-autoshutdown t) ;; Shutdown unused servers
+  (eglot-report-progress nil) ;; Disable lsp server logs
+)
 
 ;; Org-mode
 (use-package org
