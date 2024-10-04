@@ -17,7 +17,6 @@
                          ("elpa" . "https://elpa.gnu.org/packages/")
 												 ))
 
-
 ;; Better Defaults
 (use-package emacs
   :custom
@@ -31,6 +30,7 @@
   (global-auto-revert-mode t)
   ;;(recentf-mode t) ;; Enable recent file mode
   ;;(global-visual-line-mode t)           ;; Enable truncated lines
+	(x-select-enable-clipboard t)
   (mouse-wheel-progressive-speed nil)
   (scroll-conservatively 10)
   ;;(scroll-margin 8)
