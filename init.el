@@ -86,6 +86,21 @@
 (use-package vterm
     :ensure t)
 
+
+;; tree-sitter
+(use-package tree-sitter
+  :ensure t
+  :config
+  ;; (setq tree-sitter-extra-load-path '("/usr/local/lib"))
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-mode-hook #'tree-sitter-hl-mode)
+  ;; (tree-sitter-require 'javascript)
+)
+
+(use-package treesit-auto
+  :config
+  (global-treesit-auto-mode))
+
 ;; eglot configuration
 (use-package eglot
   :ensure nil ;; Don't install eglot because it's now built-in
