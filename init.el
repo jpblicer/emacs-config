@@ -90,7 +90,7 @@
 (use-package eglot
   :ensure nil ;; Don't install eglot because it's now built-in
   :hook ((c-mode c++-mode lua-mode ruby-mode go-mode
-                 web-mode js-mode typescript-mode) . eglot-ensure)
+                 web-mode js-mode typescript-mode python-mode) . eglot-ensure)
   :custom
   (eglot-events-buffer-size 0) ;; No event buffers (Lsp server logs)
   (eglot-autoshutdown t) ;; Shutdown unused servers
