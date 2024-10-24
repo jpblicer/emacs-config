@@ -21,6 +21,8 @@
 (use-package emacs
   :custom
   (menu-bar-mode nil)
+	(inhibit-startup-message t)
+	(initial-scratch-message nil)
   (scroll-bar-mode nil)
   (tool-bar-mode nil)  
   (delete-selection-mode t)
@@ -96,6 +98,11 @@
   (eglot-autoshutdown t) ;; Shutdown unused servers
   (eglot-report-progress nil) ;; Disable lsp server logs
 )
+
+;; Python Virtual Enviornment Support
+(use-package pet
+  :config
+  (add-hook 'python-base-mode-hook 'pet-mode -10))
 
 ;; Org-mode
 (use-package org
