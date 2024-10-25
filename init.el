@@ -86,7 +86,20 @@
 
 ;; vTerm
 (use-package vterm
-    :ensure t)
+  :ensure t
+	:bind (("C-c t" . vterm)))
+
+;; Dired
+(use-package dired
+	:ensure nil
+	:defer t
+	:config
+	(setq dired-recursive-copies 'always)
+	(setq dired-create-destination-dirs 'ask)
+	(setq dired-make-directory-clickable t)
+	(setq dired-mouse-drag-files t)
+	(setq dired-kill-when-opening-new-dired-buffer t)
+	(setq dired-listing-switches "-ahl --group-directories-first"))
 
 ;; eglot configuration
 (use-package eglot
