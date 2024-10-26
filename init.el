@@ -30,6 +30,7 @@
   (electric-pair-mode t)    
   (blink-cursor-mode nil)   
   (global-auto-revert-mode t)
+	(delete-by-moving-to-trash t)
   ;;(recentf-mode t) ;; Enable recent file mode
   ;;(global-visual-line-mode t)           ;; Enable truncated lines
 	(x-select-enable-clipboard t)
@@ -100,6 +101,7 @@
 	(setq dired-mouse-drag-files t)
 	(setq dired-kill-when-opening-new-dired-buffer t)
 	(setq dired-listing-switches "-ahl --group-directories-first"))
+(put 'dired-find-alternate-file 'disabled nil)
 
 ;; eglot configuration
 (use-package eglot
@@ -282,4 +284,5 @@
 ;; Runtime Performance
 (setq gc-cons-threshold (* 2 1000 1000))
 (setq read-process-output-max (* 1024 1024))
+
 
