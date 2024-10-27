@@ -88,7 +88,9 @@
 ;; vTerm
 (use-package vterm
   :ensure t
-	:bind (("C-c t" . vterm)))
+	:bind (("C-c t" . vterm))
+  :config
+  (setq vterm-timer-delay 0.01))
 
 ;; Dired
 (use-package dired
@@ -105,7 +107,7 @@
 
 ;; eglot configuration
 (use-package eglot
-  :ensure nil ;; Don't install eglot because it's now built-in
+  :ensure nil
   :hook ((c-mode c++-mode lua-mode ruby-mode go-mode
                  web-mode js-mode typescript-mode python-mode) . eglot-ensure)
   :custom
