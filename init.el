@@ -1,4 +1,4 @@
-;; Performance
+; Performance
 (setq gc-cons-threshold (* 50 1000 1000))
 
 (defun start/org-babel-tangle-config ()
@@ -54,7 +54,10 @@
   (load-theme 'modus-operandi t))
 
 ;; Font and Font-Size
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil 
+										:family "Iosevka Comfy"
+										:height 160
+										:weight `regular)
 
 ;; Line numbers and autoclose parentheses when programming
 (add-hook 'prog-mode-hook (lambda ()
