@@ -104,6 +104,7 @@
 	(setq dired-create-destination-dirs 'ask)
 	(setq dired-make-directory-clickable t)
 	(setq dired-mouse-drag-files t)
+	(setq dired-dwim-target t)
 	(setq dired-kill-when-opening-new-dired-buffer t)
 	(setq dired-listing-switches "-ahl --group-directories-first"))
 (put 'dired-find-alternate-file 'disabled nil)
