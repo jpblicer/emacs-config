@@ -26,7 +26,7 @@
   (scroll-bar-mode nil)
   (tool-bar-mode nil)  
   (delete-selection-mode t)
-  (electric-indent-mode nil)
+  (electric-indent-mode t)
   (electric-pair-mode t)    
   (blink-cursor-mode nil)   
   (global-auto-revert-mode t)
