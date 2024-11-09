@@ -143,6 +143,17 @@
   :after org
   :hook (org-mode . org-superstar-mode))
 
+;; Org-roam
+(use-package org-roam
+	:ensure t
+	:custom
+	(org-roam-directory "~/Documents/org")
+	:bind(("C-c n l" . org-roam-buffer-toggle)
+				("C-c n f" . org-roam-node-find)
+				("C-c n i" . org-roam-node-insert))
+	:config
+	(org-roam-setup))
+
 ;; Nerd Icons
 (use-package nerd-icons
   :if (display-graphic-p))
