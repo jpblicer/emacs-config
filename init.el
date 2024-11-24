@@ -31,6 +31,7 @@
   (blink-cursor-mode nil)   
   (global-auto-revert-mode t)
 	(delete-by-moving-to-trash t)
+	(winner-mode t)
   ;;(recentf-mode t) ;; Enable recent file mode
   ;;(global-visual-line-mode t)           ;; Enable truncated lines
 	(x-select-enable-clipboard t)
