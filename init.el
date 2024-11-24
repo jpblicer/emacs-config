@@ -96,6 +96,11 @@
   :config
   (setq vterm-timer-delay 0.01))
 
+;; eshell
+(use-package eshell
+	:ensure nil
+	:bind (("C-c e" . eshell)))
+
 ;; Dired
 (use-package dired
 	:ensure nil
