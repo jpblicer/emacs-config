@@ -1,4 +1,4 @@
-; Performance
+;; Performance
 (setq gc-cons-threshold (* 50 1000 1000))
 
 (defun start/org-babel-tangle-config ()
@@ -153,7 +153,7 @@
 (use-package org-roam
 	:ensure t
 	:custom
-	(org-roam-directory "~/Documents/org")
+	(org-roam-directory "~/Documents/Org")
 	:bind(("C-c n l" . org-roam-buffer-toggle)
 				("C-c n f" . org-roam-node-find)
 				("C-c n i" . org-roam-node-insert))
