@@ -89,6 +89,8 @@
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
+(add-to-list 'exec-path "/usr/bin")
+
 ;; vTerm
 (use-package vterm
   :ensure t
@@ -125,6 +127,12 @@
   (eglot-autoshutdown t) ;; Shutdown unused servers
   (eglot-report-progress nil) ;; Disable lsp server logs
 )
+
+;; Docker
+(use-package docker
+  :ensure t
+  :bind ("C-c d" . docker)
+	:config	(setq docker-use-sudo t))
 
 ;; Python Virtual Enviornment Support
 (use-package pet
