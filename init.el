@@ -126,7 +126,10 @@
   (eglot-events-buffer-size 0) ;; No event buffers (Lsp server logs)
   (eglot-autoshutdown t) ;; Shutdown unused servers
   (eglot-report-progress nil) ;; Disable lsp server logs
-)
+	)
+
+;; Geiser
+(use-package geiser-mit :ensure t)
 
 ;; Docker
 (use-package docker
