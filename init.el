@@ -147,6 +147,7 @@
   :ensure nil
   :custom
   (org-edit-src-content-indentation 2)
+	(org-startup-folded t) 
   :hook
   (org-mode . org-indent-mode)
 	(org-mode . toggle-truncate-lines)
