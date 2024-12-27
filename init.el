@@ -147,10 +147,10 @@
   :ensure nil
   :custom
   (org-edit-src-content-indentation 2)
-
   :hook
   (org-mode . org-indent-mode)
-  )
+	(org-mode . toggle-truncate-lines)
+  (org-mode . word-wrap-whitespace-mode))
 
 (use-package toc-org
   :commands toc-org-enable
