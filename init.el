@@ -121,12 +121,17 @@
 (use-package eglot
   :ensure nil
   :hook ((c-mode c++-mode lua-mode ruby-mode go-mode
-                 web-mode js-mode typescript-mode python-mode) . eglot-ensure)
+                 js-mode typescript-mode python-mode) . eglot-ensure)
   :custom
   (eglot-events-buffer-size 0) ;; No event buffers (Lsp server logs)
   (eglot-autoshutdown t) ;; Shutdown unused servers
   (eglot-report-progress nil) ;; Disable lsp server logs
 	)
+
+;; Emmets
+(use-package emmet-mode
+  :ensure t
+  :hook ((html-mode css-mode) . emmet-mode))
 
 ;; Rails / Ruby
 (use-package ruby-mode
