@@ -128,6 +128,15 @@
   (eglot-report-progress nil) ;; Disable lsp server logs
 	)
 
+;; Rails / Ruby
+(use-package ruby-mode
+  :mode ("\\.rb\\'"      
+         "\\.rake\\'"    
+         "\\.gemspec\\'" 
+         "Gemfile\\'"    
+         "Capfile\\'")
+	)
+
 ;; Geiser
 (use-package geiser-mit :ensure t)
 
